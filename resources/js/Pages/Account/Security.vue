@@ -9,7 +9,7 @@ defineOptions({ layout: [Default, Account] })
 </script>
 
 <template>
-    <div class="w-100 space-y-12">
+    <div class="w-96 space-y-12">
         <ChangePasswordForm v-if="$page.props.features['update-passwords']" />
         <TwoFactorForm v-if="$page.props.features['two-factor-authentication']" />
     </div>

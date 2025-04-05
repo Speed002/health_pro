@@ -42,7 +42,11 @@ class HandleInertiaRequests extends Middleware
         return array_merge(parent::share($request), [
             'config' => config()->get(['app.name']),
             'auth' => [
-                'user' => $request->user() ? UserResource::make($request->user()) : null
+                'user' => $request->user() ? UserResource::make($request->user()->load([
+                    'currentTeam.members.roles', // Load members & their roles
+                    'currentTeam.invites', // Load team invites
+                    'teams'
+                    ])) : null
             ],
             'features' => collect(config('fortify.features'))->mapWithKeys(fn ($key) => [$key => true])->merge([
                 'security' => Features::hasSecurityFeatures(),

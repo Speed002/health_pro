@@ -5,7 +5,6 @@ import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/vue/24/outline'
 </script>
 
 <template>
-    <div>
         <div class="mx-auto max-w-6xl sm:grid grid-cols-5 space-y-8 mt-8 sm:space-y-0">
             <div class="col-span-1">
                 <nav class="border-r border-r-slate-200 h-full md:px-0 sm:px-8 px-8 md:block hidden">
@@ -57,24 +56,17 @@ import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/vue/24/outline'
                                 </DisclosurePanel>
                             </Disclosure>
                         </li>
-
-                        <!-- Last Links -->
                         <li>
-                            <Link :href="route('account.index')" class="text-gray-900 flex text-sm" :class="{ 'text-blue-600 font-semibold': $page.props.ziggy.route_name === 'account.index' }">
-                                Profile information
+                            <Link :href="route('dashboard')" class="text-gray-900 flex text-sm" :class="{ 'text-blue-600 font-semibold': $page.props.ziggy.route_name === 'dashboard' }">
+                                Teams
                             </Link>
                         </li>
-                        <li v-if="$page.props.features.security">
-                            <Link :href="route('account.security.index')" class="text-gray-900 flex text-sm" :class="{ 'text-blue-600 font-semibold': $page.props.ziggy.route_name === 'account.security.index' }">
-                                Security
-                            </Link>
-                        </li>
+
                     </ul>
                 </nav>
             </div>
-            <div class="col-span-3 p-3 pt-5">
+            <div class="col-span-4 p-3">
                 <slot />
             </div>
         </div>
-    </div>
 </template>

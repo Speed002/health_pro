@@ -37,7 +37,7 @@ const photoPreview = computed(() => {
 </script>
 
 <template>
-    <div class="w-100">
+    <div class="w-96">
         <h2 class="font-bold text-gray-900 font-mono">Profile information</h2>
         <form class="mt-5 space-y-6 " v-on:submit.prevent="submit">
             <div>

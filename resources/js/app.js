@@ -19,10 +19,16 @@ createInertiaApp({
         createApp({ render: () => h(App, props) })
         .use(plugin)
         .use(toast)
-        .use(modal, {   
+        .use(modal, {
             resolve: (name) => resolvePageComponent(`./Modals/${name}.vue`, import.meta.glob(`./Modals/**/*.vue`))
         })
         .use(ZiggyVue, Ziggy)
         .mount(el)
     },
+    progress: {
+        color: '#29d',
+        includeCSS: true,
+        showSpinner: true,
+    },
+
 })
